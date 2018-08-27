@@ -4,9 +4,9 @@ using System.Net.Http;
 using CopaFilmes.Domain;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CopaFilmes.Repository;
+using CopaFilmes.Infrastructure;
 
-namespace CopaFilmes.Controllers 
+namespace CopaFilmes.Features.Movies 
 {
 
     [Route("/api/[controller]")]

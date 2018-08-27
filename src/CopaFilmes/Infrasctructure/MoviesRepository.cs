@@ -9,7 +9,7 @@ using CopaFilmes.Domain;
 using CopaFilmes.Models;
 using Newtonsoft.Json;
 
-namespace CopaFilmes.Repository 
+namespace CopaFilmes.Infrastructure 
 {
     public class MoviesRepository
     {

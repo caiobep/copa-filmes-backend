@@ -30,7 +30,7 @@ namespace CopaFilmes
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Test!");
+                await context.Response.WriteAsync("Copa Filmes");
             });
         }
     }
