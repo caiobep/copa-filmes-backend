@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using CopaFilmes.Domain;
 
-namespace CopaFilmes.Models 
+namespace CopaFilmes.Entities 
 {
     public class Filme 
     {
@@ -11,25 +10,13 @@ namespace CopaFilmes.Models
         public int Ano { get; set; }
         public float Nota { get; set; }
 
-
-        public Movie ConvertToMovie() 
-        {
-            return new Movie
-            {
-                Id = Id,
-                Title = Titulo,
-                Year = Ano,
-                Rating = Nota
-            };
-        }
-
         public static Movie ConvertToMovie(Filme filme)
         {
             return new Movie
             {
                 Id = filme.Id,
                 Title = filme.Titulo,
-                Year = filme.Ano,
+                Year = new DateTime(filme.Ano),
                 Rating = filme.Nota
             };
         }

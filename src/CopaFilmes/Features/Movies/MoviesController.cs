@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using CopaFilmes.Domain;
+using CopaFilmes.Entities;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CopaFilmes.Infrastructure;

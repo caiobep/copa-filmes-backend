@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using CopaFilmes.Domain;
+using CopaFilmes.Entities;
 
 namespace CopaFilmes.Features.Movies
 {
@@ -34,7 +34,7 @@ namespace CopaFilmes.Features.Movies
                 movieLinkedList.RemoveLast();
 
 
-                var winner = Movie.CompareMovies(firstMovie,  lastMovie);
+                var winner = CompareMovies(firstMovie,  lastMovie);
 
                 phase1Winners.Append(winner);
             }
@@ -44,9 +44,6 @@ namespace CopaFilmes.Features.Movies
 
         public static Movie[] EliminatoryFilter(Movie[] movies)
         {
-            if ((movies.Length % 2) != 0)
-                throw new Exception("movies itens must be in pairs");
-
             var moviesLinkedList = new LinkedList<Movie>(movies);
             var winners = new List<Movie>();
 
@@ -58,7 +55,7 @@ namespace CopaFilmes.Features.Movies
                 var movieB = moviesLinkedList.First.Value;
                 moviesLinkedList.RemoveFirst();
 
-                var winner = Movie.CompareMovies(
+                var winner = CompareMovies(
                     movieA,
                     movieB
                 );
@@ -72,12 +69,12 @@ namespace CopaFilmes.Features.Movies
         public static Movie GetTournamentWinner(Movie[] movies)
         {
             movies.OrderBy(m => m.Title);
-            var firstPhaseWinners = Movie.GetFirstPhaseWinners(movies);
+            var firstPhaseWinners = GetFirstPhaseWinners(movies);
             
             Movie[] winners = null;
             while(winners.Length > 1)
             {
-                winners = Movie.EliminatoryFilter(movies);
+                winners = EliminatoryFilter(movies);
             }
 
             return winners.First();

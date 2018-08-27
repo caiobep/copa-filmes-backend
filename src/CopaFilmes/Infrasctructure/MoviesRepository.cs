@@ -5,8 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
-using CopaFilmes.Domain;
-using CopaFilmes.Models;
+using CopaFilmes.Entities;
 using Newtonsoft.Json;
 
 namespace CopaFilmes.Infrastructure 
@@ -38,7 +37,7 @@ namespace CopaFilmes.Infrastructure
                 var rawMovies = JsonConvert
                     .DeserializeObject<Filme[]>(stringResult);
 
-                var movies = rawMovies.Select(m => m.ConvertToMovie());
+                var movies = rawMovies.Select(m => Filme.ConvertToMovie(m));
                 return movies.ToList();
             }
 
