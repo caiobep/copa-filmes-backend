@@ -27,7 +27,7 @@ namespace CopaFilmes.Infrastructure
             );
         }
 
-        public async Task<List<Movie>> GetMoviesFromApi()
+        public async Task<Movie[]> GetMoviesFromApi()
         {
             var response = await _client.GetAsync("api/filmes");
 
@@ -38,10 +38,10 @@ namespace CopaFilmes.Infrastructure
                     .DeserializeObject<Filme[]>(stringResult);
 
                 var movies = rawMovies.Select(m => Filme.ConvertToMovie(m));
-                return movies.ToList();
+                return movies.ToList().ToArray();
             }
 
-            return new List<Movie>();
+            return new List<Movie>().ToArray();
         }
     }
 }

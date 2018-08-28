@@ -9,16 +9,17 @@ using CopaFilmes.Infrastructure;
 namespace CopaFilmes.Features.Movies 
 {
 
-    [Route("/api/[controller]")]
+    [Route("/api/Movies")]
     public class MoviesController : Controller
     {   
         private MoviesRepository _moviesRepository = new MoviesRepository();
 
         [HttpGet]
-        public async Task<List<Movie>> Get()
+        public async Task<Movie[]> Get()
         {
             var movies = await _moviesRepository.GetMoviesFromApi();
             return movies;
         }
+
     }
 }

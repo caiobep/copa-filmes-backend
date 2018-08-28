@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace CopaFilmes.Entities
 {
@@ -8,11 +9,7 @@ namespace CopaFilmes.Entities
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public DateTime Year { get; set; }
-        public double Rating { get; set; }
-
-        public Movie() 
-        {
-        }
+        public DateTime? Year { get; set; }
+        public double? Rating { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CopaFilmes.Entities;
@@ -22,10 +23,17 @@ namespace CopaFilmes.Features.Movies
 
         public static Movie[] GetFirstPhaseWinners(Movie[] movies)
         {
-            var movieLinkedList = new LinkedList<Movie>(movies);
-            var phase1Winners = new List<Movie>();
+            if ((movies.Count() % 2) != 0)
+                return new Movie[] { };
 
-            for (int i = 0; i < movieLinkedList.Count; i++)
+
+            var organizedMovies = movies.OrderBy(m => m.Title);
+            
+            var movieLinkedList = new LinkedList<Movie>(organizedMovies);
+            
+            var winners = new List<Movie>();
+            
+            while (movieLinkedList.Count > 0)
             {
                 var firstMovie = movieLinkedList.First.Value;
                 movieLinkedList.RemoveFirst();
@@ -33,21 +41,25 @@ namespace CopaFilmes.Features.Movies
                 var lastMovie = movieLinkedList.Last.Value;
                 movieLinkedList.RemoveLast();
 
-
-                var winner = CompareMovies(firstMovie,  lastMovie);
-
-                phase1Winners.Append(winner);
+                var winner = CompareMovies(firstMovie, lastMovie);
+            
+                winners.Add(winner);
             }
 
-            return phase1Winners.ToArray();
+            return winners.ToArray();
+
         }
 
         public static Movie[] EliminatoryFilter(Movie[] movies)
         {
+            if ((movies.Count() % 2) != 0)
+                return new Movie[] { };
+
             var moviesLinkedList = new LinkedList<Movie>(movies);
+            
             var winners = new List<Movie>();
 
-            for (int i = 0; i < moviesLinkedList.Count; i++)
+            while(moviesLinkedList.Count > 0)
             {
                 var movieA = moviesLinkedList.First.Value;
                 moviesLinkedList.RemoveFirst();
@@ -60,7 +72,7 @@ namespace CopaFilmes.Features.Movies
                     movieB
                 );
                 
-                winners.Append(winner);
+                winners.Add(winner);
             }
 
             return winners.ToArray();
@@ -68,13 +80,12 @@ namespace CopaFilmes.Features.Movies
 
         public static Movie GetTournamentWinner(Movie[] movies)
         {
-            movies.OrderBy(m => m.Title);
             var firstPhaseWinners = GetFirstPhaseWinners(movies);
-            
-            Movie[] winners = null;
+
+            Movie[] winners = firstPhaseWinners;
             while(winners.Length > 1)
             {
-                winners = EliminatoryFilter(movies);
+                winners = EliminatoryFilter(winners);
             }
 
             return winners.First();
