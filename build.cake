@@ -4,14 +4,14 @@ var tag = Argument("tag", "cake");
 Task("Restore")
     .Does(() => 
     {
-        DotNetRestore(".");
-    })
+        DotNetCoreRestore(".");
+    });
 
 Task("Build")
     .Does(() => 
     {
         DotNetCoreBuild(".");
-    })
+    });
 
 Task("Test")
     .Does(() => 
@@ -21,7 +21,7 @@ Task("Test")
         {
             DotNetCoreTest(file.ToString());
         }
-    })
+    });
 
 Task("Publish")
     .Does(() => 
@@ -36,7 +36,7 @@ Task("Publish")
         };
 
         DotNetCorePublish("src/CopaFilmes", settings);
-    })
+    });
 
 Task("Default")
     .IsDependentOn("Restore")

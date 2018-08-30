@@ -1,6 +1,6 @@
 version: '3'
 services:
-  conduit:
-  build: .
-  ports:
-    - "5000:5000"
+  copa-filmes:
+    build: .
+    ports:
+     - "5000:5000"
