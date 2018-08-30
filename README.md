@@ -2,6 +2,8 @@
 
 > A .NET Core solution to look for the best film
 
+![CircleCI](https://circleci.com/gh/caiobep/copa-filmes-backend/tree/master.svg?style=svg)
+
 ## Getting Started
 
 Simply download .NET Core SDK
