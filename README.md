@@ -20,3 +20,7 @@ The above might work for Docker on Windows
 
 - Install Cake as a global tool using `dotnet tool install -g Cake.Tool`
 - Run Cake: `dotnet cake build.cake`
+
+## Special Thanks
+
+This project was heavily inspired on [Beaultiful REST Api](https://github.com/nbarbettini/BeautifulRestApi) by [Nate Barbettini](https://github.com/nbarbettini) and [Aspnet Core RealWorld Example App](https://github.com/gothinkster/aspnetcore-realworld-example-app) by [Thinkster](https://github.com/gothinkster)
