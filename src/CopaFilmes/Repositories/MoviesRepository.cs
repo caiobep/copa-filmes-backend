@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using CopaFilmes.Entities;
 using Newtonsoft.Json;
 
-namespace CopaFilmes.Infrastructure 
+namespace CopaFilmes.Repositories 
 {
     public class MoviesRepository
     {
