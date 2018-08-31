@@ -9,7 +9,7 @@ using CopaFilmes.Repositories;
 namespace CopaFilmes.Features.Movies 
 {
     [ApiVersion("1.0")]
-    [Route("/api/Movies")]
+    [Route("/api/v{version:apiVersion}/Movies")]
     public class MoviesController : Controller
     {   
         private MoviesRepository _moviesRepository = new MoviesRepository();
