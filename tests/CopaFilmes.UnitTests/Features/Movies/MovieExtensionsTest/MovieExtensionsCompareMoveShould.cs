@@ -15,16 +15,16 @@ namespace CopaFilmes.UnitTests.Features.Movies.MovieExtensionsTest
             {
                 Id = "t0001",
                 Title = "The Matrix",
-                Year = new DateTime(1999),
-                Rating = 8.7
+                Year = 1999,
+                Rating = 8.7f
             };
             
             var fightClub = new Movie
             {
                 Id = "t0002",
                 Title = "Fight Club",
-                Year = new DateTime(1999),
-                Rating = 8.8
+                Year = 1999,
+                Rating = 8.8f
             };
 
 
@@ -43,16 +43,16 @@ namespace CopaFilmes.UnitTests.Features.Movies.MovieExtensionsTest
             {
                 Id = "t0001",
                 Title = "Star Wars",
-                Year = new DateTime(1977),
-                Rating = 8.6
+                Year = 1977,
+                Rating = 8.6f
             };
 
             var cityOfGod = new Movie
             {
                 Id = "t0002",
                 Title = "City Of God",
-                Year = new DateTime(2002),
-                Rating = 8.6
+                Year = 2002,
+                Rating = 8.6f
             };
 
 

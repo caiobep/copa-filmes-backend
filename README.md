@@ -9,6 +9,15 @@
 Simply download .NET Core SDK
 [https://www.microsoft.com/net/download/core](https://www.microsoft.com/net/download/core)
 
+### Change the api URL in `launchSettings.json`
+
+```json
+"environmentVariables": {
+    "ASPNETCORE_ENVIRONMENT": "Development",
+    "API_URL": "<YOUR_API_URL_HERE>" // <-- That's it Right there!
+}
+```
+
 ## Docker Build
 
 There is a `Makefile` for macOS and Linux:

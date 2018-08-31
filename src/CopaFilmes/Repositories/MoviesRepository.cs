@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Http;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -10,21 +12,13 @@ using Newtonsoft.Json;
 
 namespace CopaFilmes.Repositories 
 {
-    public class MoviesRepository
+    public class MoviesRepository : IMovieRepository
     {
-        private HttpClient _client = new HttpClient();
+        private readonly HttpClient _client;
 
-        public MoviesRepository()
+        public MoviesRepository(IHttpClientFactory client)
         {
-            _client.BaseAddress = new Uri(
-                "http://copafilmes.azurewebsites.net/"
-            );
-
-            _client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue(
-                    "application/json"
-                )
-            );
+            _client = client.CreateClient("CopaFilmes");
         }
 
         public async Task<Movie[]> GetMoviesFromApi()

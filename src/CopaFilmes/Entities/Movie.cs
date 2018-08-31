@@ -9,7 +9,7 @@ namespace CopaFilmes.Entities
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public DateTime? Year { get; set; }
-        public double? Rating { get; set; }
+        public short? Year { get; set; }
+        public float? Rating { get; set; }
     }
 }

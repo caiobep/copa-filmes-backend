@@ -12,7 +12,12 @@ namespace CopaFilmes.Features.Movies
     [Route("/api/v{version:apiVersion}/Movies")]
     public class MoviesController : Controller
     {   
-        private MoviesRepository _moviesRepository = new MoviesRepository();
+        private readonly IMovieRepository _moviesRepository;
+
+        public MoviesController(IMovieRepository movieReposiotry)
+        {
+            _moviesRepository = movieReposiotry;
+        }
 
         [HttpGet]
         public async Task<Movie[]> Get()

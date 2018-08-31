@@ -7,7 +7,7 @@ namespace CopaFilmes.Entities
     {
         public string Id { get; set; }
         public string Titulo { get; set; }
-        public int Ano { get; set; }
+        public short? Ano { get; set; }
         public float Nota { get; set; }
 
         public static Movie ConvertToMovie(Filme filme)
@@ -16,7 +16,7 @@ namespace CopaFilmes.Entities
             {
                 Id = filme.Id,
                 Title = filme.Titulo,
-                Year = new DateTime(filme.Ano),
+                Year = filme.Ano,
                 Rating = filme.Nota
             };
         }
