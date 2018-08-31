@@ -78,17 +78,20 @@ namespace CopaFilmes.Features.Movies
             return winners.ToArray();
         }
 
-        public static Movie GetTournamentWinner(Movie[] movies)
+        public static (Movie Winner, Movie RunnerUp) GetTournamentWinners(Movie[] movies)
         {
             var firstPhaseWinners = GetFirstPhaseWinners(movies);
 
             Movie[] winners = firstPhaseWinners;
-            while(winners.Length > 1)
+            while(winners.Length > 2)
             {
                 winners = EliminatoryFilter(winners);
             }
 
-            return winners.First();
+            var winner = CompareMovies(winners.First(), winners.Last());
+            var runnerUp = winners.Single(m => m.Id != winner.Id);
+
+            return (winner, runnerUp);
         } 
     }
 }

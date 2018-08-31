@@ -24,11 +24,14 @@ namespace CopaFilmes.UnitTests.Features.Movies.MovieExtensionsTest
             };
 
             var expectedWinner = MoviesMock.vingadoresGuerraInfinita;
+            var expectedRunnerUp = MoviesMock.osIncriveis2;
 
-        
-            var winner = MovieExtensions.GetTournamentWinner(movies);
+            var expectedWinners = MovieExtensions.GetTournamentWinners(movies);
+            var actualWinner = expectedWinners.Winner; 
+            var actualRunnerUp = expectedWinners.RunnerUp; 
 
-            Assert.Equal(expectedWinner, winner);
+            Assert.Equal(expectedWinner, actualWinner);
+            Assert.Equal(expectedRunnerUp, actualRunnerUp);
         }
     }
 }

@@ -5,6 +5,7 @@ using CopaFilmes.Entities;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CopaFilmes.Repositories;
+using CopaFilmes.Models.Tournament;
 
 namespace CopaFilmes.Features.Movies 
 {
@@ -27,10 +28,10 @@ namespace CopaFilmes.Features.Movies
         }
 
         [HttpPost("Tournament")]
-        public Movie GetTournamentWinner([FromBody] Movie[] movies)
+        public TournamentWinners GetTournamentWinner([FromBody] Movie[] movies)
         {
-            var winner = MovieExtensions.GetTournamentWinner(movies);
-            return winner;
+            var winners = MovieExtensions.GetTournamentWinners(movies);
+            return new TournamentWinners(winners.Winner, winners.RunnerUp);
         }
 
     }
