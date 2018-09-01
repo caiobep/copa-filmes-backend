@@ -32,6 +32,15 @@ The above might work for Docker on Windows
 - Install Cake as a global tool using `dotnet tool install -g Cake.Tool`
 - Run Cake: `dotnet cake build.cake`
 
+## Usage
+
+> This api have 2 main endpoitns
+
+| Method |       Route                  |   Params(Body)  |    Description     |
+|--------|:----------------------------:|-----------------|-------------------:|
+|  GET   | `/api/v1/movies`             |       None      | Returns All Movies |
+|  POST  | `/api/v1/movies/tournament`  |  A Movies List  | Returns All Movies |
+
 ## Special Thanks
 
 This project was heavily inspired on [Beaultiful REST Api](https://github.com/nbarbettini/BeautifulRestApi) by [Nate Barbettini](https://github.com/nbarbettini) and [Aspnet Core RealWorld Example App](https://github.com/gothinkster/aspnetcore-realworld-example-app) by [Thinkster](https://github.com/gothinkster)
